@@ -1,18 +1,22 @@
-import { fileURLToPath, URL } from 'node:url'
-
+import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
+import ElementPlus from 'unplugin-element-plus/vite'
 
-// https://vite.dev/config/
+const pathSrc = path.resolve(__dirname, 'src')
+
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueDevTools(),
-  ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '~/': `${pathSrc}/`,
+      '@': pathSrc,
     },
   },
+  plugins: [
+    vue(),
+    ElementPlus({
+      useSource: true,
+      lib: '@hc/element-plus'
+    }),
+  ],
 })
