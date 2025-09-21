@@ -91,3 +91,4 @@ CREATE INDEX idx_articles_category ON articles(category_id);
 CREATE INDEX idx_articles_status ON articles(status);
 CREATE INDEX idx_comments_article ON comments(article_id);
 CREATE INDEX idx_comments_user ON comments(user_id);
+-- 下一个配置文件建立一张token表
